@@ -1,0 +1,27 @@
+﻿@model List<Paciente>
+
+<h1>Pacientes</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">email</th>
+                <th scope="col">Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var paciente in Model)
+            {
+                <tr class="table-light">
+                    <td>@Html.DisplayFor(m=>paciente.Nombre)</td>
+                    <td>@Html.DisplayFor(m=>paciente.Apellido)</td>
+                    <td>@Html.DisplayFor(m=>paciente.Email)</td>
+                    <td>@Html.DisplayFor(m=>paciente.Telefono)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

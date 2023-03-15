@@ -1,0 +1,45 @@
+﻿@using LARIOS.Models.ViewModel
+@model AgCitaVM
+
+<h1>Agendar cita</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AgCita">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Paciente</label><br />
+                @Html.DropDownListFor(m => m.Pacientes[0].Value, Model.Pacientes,new { @class = "form-control" , optionLabel = "Seleccione un paciente"  })
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Traramientos</label><br />
+                @Html.DropDownListFor(m => m.Tratamientos[0].Value, Model.Tratamientos,new { @class = "form-control", optionLabel = "Seleccione un tratamiento"  })
+                <span class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label class="control-label">Doctor</label><br />
+                @Html.DropDownListFor(m => m.Doctores[0].Value, Model.Doctores,new { @class = "form-control", optionLabel = "Seleccione un doctor"  })
+                <span class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fecha de atención</label>
+                <input  class="form-control" type="date" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Horario de atención</label>
+                <input class="form-control" type="time" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="AgCita" class="btn btn-primary">Agendar cita</button>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
